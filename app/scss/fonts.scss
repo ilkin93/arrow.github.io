@@ -1,0 +1,19 @@
+@mixin font-face($family, $filename, $weight : normal, $style :normal) {
+  @font-face {
+    font-family: '#{$family}';
+    src: url(('#{$filename}.eot'));
+    src: url(('#{$filename}.eot?#iefix')) format('embedded-opentype'),
+    url(('#{$filename}.woff')) format('woff'),
+    url(('#{$filename}.ttf')) format('truetype');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+$custom-font-one:'Raleway-Regular';
+$custom-font-two:'Raleway-Bold';
+$custom-font-three:'Raleway-Medium';
+$custom-font-four:'Lato-Bold';
+@include font-face('#{$custom-font-one}', '../fonts/#{$custom-font-one}');
+@include font-face('#{$custom-font-two}', '../fonts/#{$custom-font-two}', 700, normal);
+@include font-face('#{$custom-font-three}', '../fonts/#{$custom-font-three}', 500, normal);
+@include font-face('#{$custom-font-four}', '../fonts/#{$custom-font-four}', 700, normal);
